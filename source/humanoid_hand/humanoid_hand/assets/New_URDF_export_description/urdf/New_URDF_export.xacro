@@ -1,0 +1,745 @@
+<?xml version="1.0" ?>
+<robot name="New_URDF_export" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find New_URDF_export_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find New_URDF_export_description)/urdf/New_URDF_export.trans" />
+<xacro:include filename="$(find New_URDF_export_description)/urdf/New_URDF_export.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.002745169725245046 -0.0008366364864162769 0.050206070448823796" rpy="0 0 0"/>
+    <mass value="0.2414972480343464"/>
+    <inertia ixx="0.000237" iyy="0.000426" izz="0.000234" ixy="3.4e-05" iyz="-7e-06" ixz="2.7e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component24_1">
+  <inertial>
+    <origin xyz="-0.002025427836878528 0.008912288892098434 0.012353450951799974" rpy="0 0 0"/>
+    <mass value="0.012258638602964354"/>
+    <inertia ixx="2e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.03682 0.005982 -0.074" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component24_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.03682 0.005982 -0.074" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component24_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component25_1">
+  <inertial>
+    <origin xyz="-0.00047467160594175453 0.00903509191680997 0.012421508407421775" rpy="0 0 0"/>
+    <mass value="0.012258632723785344"/>
+    <inertia ixx="2e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.012395 0.004776 -0.079" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component25_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.012395 0.004776 -0.079" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component25_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component1_1">
+  <inertial>
+    <origin xyz="0.004123666960496847 0.0011067029414736289 0.01723038194941895" rpy="0 0 0"/>
+    <mass value="0.011115907596850922"/>
+    <inertia ixx="2e-06" iyy="2e-06" izz="1e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.045725 0.001547 -0.104372" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.045725 0.001547 -0.104372" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component3_1">
+  <inertial>
+    <origin xyz="-0.0036945196042365014 -0.0016865936108732698 0.0046870721481248045" rpy="0 0 0"/>
+    <mass value="0.0019033331833639964"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.038333 -0.001675 -0.145192" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.038333 -0.001675 -0.145192" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component4_1">
+  <inertial>
+    <origin xyz="0.0006578043440388093 0.002756298934102463 0.01152316144300558" rpy="0 0 0"/>
+    <mass value="0.0005553551144173429"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.048197 0.004381 -0.1414" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.048197 0.004381 -0.1414" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component2_1">
+  <inertial>
+    <origin xyz="-0.0027029859176378873 0.0015940781015286818 0.005832015574820604" rpy="0 0 0"/>
+    <mass value="0.002314232689912895"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.043365 0.001935 -0.169617" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.043365 0.001935 -0.169617" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component6_1">
+  <inertial>
+    <origin xyz="0.00566097044583895 0.0009279303593809061 0.01679880692646306" rpy="0 0 0"/>
+    <mass value="0.011115905659210518"/>
+    <inertia ixx="2e-06" iyy="2e-06" izz="1e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.018401 -0.001121 -0.10823" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.018401 -0.001121 -0.10823" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component7_1">
+  <inertial>
+    <origin xyz="-0.003330077463916883 -0.002411105311378465 0.00677198635006096" rpy="0 0 0"/>
+    <mass value="0.0019033352750190097"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.007348 -0.004975 -0.14646" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component7_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.007348 -0.004975 -0.14646" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component7_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component8_1">
+  <inertial>
+    <origin xyz="0.0014771000853101325 0.0018048088171991965 0.013173422015586855" rpy="0 0 0"/>
+    <mass value="0.0005553551398376143"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.017807 0.000565 -0.143581" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component8_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.017807 0.000565 -0.143581" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component8_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component5_1">
+  <inertial>
+    <origin xyz="-0.0020740129128638523 0.0008162221421355227 0.007803938698609875" rpy="0 0 0"/>
+    <mass value="0.0023142301158833177"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.010413 -0.001689 -0.171254" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.010413 -0.001689 -0.171254" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component23_1">
+  <inertial>
+    <origin xyz="-2.0638533683621507e-06 0.009047541745378881 0.012421521638297225" rpy="0 0 0"/>
+    <mass value="0.012258643235752422"/>
+    <inertia ixx="2e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.012244 0.010538 -0.074" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component23_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.012244 0.010538 -0.074" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component23_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component9_1">
+  <inertial>
+    <origin xyz="0.005701732164497237 0.0006306105204934537 0.016798808882961966" rpy="0 0 0"/>
+    <mass value="0.011115903436385853"/>
+    <inertia ixx="2e-06" iyy="2e-06" izz="1e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.006554 0.004335 -0.10323" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component9_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.006554 0.004335 -0.10323" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component9_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component11_1">
+  <inertial>
+    <origin xyz="-0.003451516209980696 -0.002233278304004958 0.006772092134296276" rpy="0 0 0"/>
+    <mass value="0.0019033302628551495"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.017741 0.003063 -0.141526" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component11_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.017741 0.003063 -0.141526" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component11_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component12_1">
+  <inertial>
+    <origin xyz="0.0019193155174742028 0.0017153164675866401 0.013173421980118394" rpy="0 0 0"/>
+    <mass value="0.0005553551425762632"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.007059 0.006049 -0.138581" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component12_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.007059 0.006049 -0.138581" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component12_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component10_1">
+  <inertial>
+    <origin xyz="-0.0019760427506178378 0.002921812974273479 0.007738009794912598" rpy="0 0 0"/>
+    <mass value="0.002314230055006617"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.014456 0.008182 -0.166386" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component10_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.014456 0.008182 -0.166386" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component10_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component26_1">
+  <inertial>
+    <origin xyz="0.0017077083126936718 0.008921936521695406 0.012395043734201833" rpy="0 0 0"/>
+    <mass value="0.012258648483931921"/>
+    <inertia ixx="2e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.036778 0.017064 -0.069" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component26_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.036778 0.017064 -0.069" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component26_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component13_1">
+  <inertial>
+    <origin xyz="0.007167652452317742 9.303680224181932e-05 0.016239452546972163" rpy="0 0 0"/>
+    <mass value="0.011115905543319208"/>
+    <inertia ixx="2e-06" iyy="2e-06" izz="1e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.034157 0.011667 -0.100392" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component13_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.034157 0.011667 -0.100392" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component13_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component17_1">
+  <inertial>
+    <origin xyz="-0.0027656231817524343 -0.0011316368308406152 0.005252369213118613" rpy="0 0 0"/>
+    <mass value="0.0019033246740478476"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.048936 0.010446 -0.139268" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component17_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.048936 0.010446 -0.139268" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component17_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component18_1">
+  <inertial>
+    <origin xyz="0.0031050093271399043 0.0024096864286983315 0.011196454087814722" rpy="0 0 0"/>
+    <mass value="0.0005553551392437952"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.037671 0.014649 -0.137324" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component18_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.037671 0.014649 -0.137324" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component18_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component16_1">
+  <inertial>
+    <origin xyz="-0.0016358581286405743 0.001967218457827354 0.006215753454319822" rpy="0 0 0"/>
+    <mass value="0.00231422981504397"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.048251 0.013599 -0.16419" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component16_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.048251 0.013599 -0.16419" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component16_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component21_1">
+  <inertial>
+    <origin xyz="-0.00047480998905378297 -0.001597778345875104 -0.002161180387733535" rpy="0 0 0"/>
+    <mass value="0.01141105059764941"/>
+    <inertia ixx="3e-06" iyy="1e-06" izz="2e-06" ixy="-0.0" iyz="-1e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.027 0.010587 -0.01105" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component21_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.027 0.010587 -0.01105" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component21_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component15_1">
+  <inertial>
+    <origin xyz="0.005669628334297228 -0.014763771795247582 0.004508016238325537" rpy="0 0 0"/>
+    <mass value="0.011043346797995797"/>
+    <inertia ixx="2e-06" iyy="1e-06" izz="2e-06" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0327 0.029553 -0.0001" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component15_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0327 0.029553 -0.0001" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component15_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component19_1">
+  <inertial>
+    <origin xyz="-0.003296225590801106 -0.006582898875138021 0.005592010280368742" rpy="0 0 0"/>
+    <mass value="0.002531144718261794"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.02155 0.068871 -0.007911" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component19_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.02155 0.068871 -0.007911" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component19_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component14_1">
+  <inertial>
+    <origin xyz="0.0018930116944578766 -0.014614922867036959 0.0029856270141793064" rpy="0 0 0"/>
+    <mass value="0.0007523194454609623"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.03215 0.064728 -0.01225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component14_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.03215 0.064728 -0.01225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component14_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component20_1">
+  <inertial>
+    <origin xyz="-0.0019457264466740815 -0.008167025756820878 0.0011558588435874387" rpy="0 0 0"/>
+    <mass value="0.0026899841295638023"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0247 0.099018 -0.023499" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component20_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0247 0.099018 -0.023499" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://New_URDF_export_description/meshes/Component20_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rigid 31" type="fixed">
+  <origin xyz="-0.03682 -0.005982 0.074" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Component24_1"/>
+</joint>
+
+<joint name="Rigid 32" type="fixed">
+  <origin xyz="-0.012395 -0.004776 0.079" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Component25_1"/>
+</joint>
+
+<joint name="Revolute 33" type="revolute">
+  <origin xyz="-0.008905 0.004435 0.030372" rpy="0 0 0"/>
+  <parent link="Component24_1"/>
+  <child link="Component1_1"/>
+  <axis xyz="0.993124 0.078161 0.087156"/>
+  <limit upper="1.745329" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 34" type="revolute">
+  <origin xyz="0.007392 0.003222 0.04082" rpy="0 0 0"/>
+  <parent link="Component1_1"/>
+  <child link="Component3_1"/>
+  <axis xyz="0.993124 0.078161 0.087156"/>
+  <limit upper="1.745329" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 35" type="revolute">
+  <origin xyz="-0.002472 -0.002834 0.037028" rpy="0 0 0"/>
+  <parent link="Component1_1"/>
+  <child link="Component4_1"/>
+  <axis xyz="0.993124 0.078161 0.087156"/>
+  <limit upper="2.094395" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 36" type="revolute">
+  <origin xyz="-0.005032 -0.00361 0.024425" rpy="0 0 0"/>
+  <parent link="Component3_1"/>
+  <child link="Component2_1"/>
+  <axis xyz="-0.993124 -0.078161 -0.087156"/>
+  <limit upper="0.0" lower="-1.745329" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 37" type="revolute">
+  <origin xyz="-0.006006 0.005897 0.02923" rpy="0 0 0"/>
+  <parent link="Component25_1"/>
+  <child link="Component6_1"/>
+  <axis xyz="0.999657 0.026177 0.0"/>
+  <limit upper="1.745329" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 38" type="revolute">
+  <origin xyz="0.011053 0.003854 0.03823" rpy="0 0 0"/>
+  <parent link="Component6_1"/>
+  <child link="Component7_1"/>
+  <axis xyz="0.999657 0.026177 0.0"/>
+  <limit upper="1.745329" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 39" type="revolute">
+  <origin xyz="0.000594 -0.001686 0.035351" rpy="0 0 0"/>
+  <parent link="Component6_1"/>
+  <child link="Component8_1"/>
+  <axis xyz="0.999657 0.026177 0.0"/>
+  <limit upper="2.094395" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 40" type="revolute">
+  <origin xyz="-0.003065 -0.003286 0.024794" rpy="0 0 0"/>
+  <parent link="Component7_1"/>
+  <child link="Component5_1"/>
+  <axis xyz="-0.999657 -0.026177 -0.0"/>
+  <limit upper="0.0" lower="-1.745329" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Rigid 41" type="fixed">
+  <origin xyz="0.012244 -0.010538 0.074" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Component23_1"/>
+</joint>
+
+<joint name="Revolute 42" type="revolute">
+  <origin xyz="-0.00569 0.006203 0.02923" rpy="0 0 0"/>
+  <parent link="Component23_1"/>
+  <child link="Component9_1"/>
+  <axis xyz="0.999657 -0.026177 0.0"/>
+  <limit upper="1.745329" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 43" type="revolute">
+  <origin xyz="0.011187 0.001272 0.038296" rpy="0 0 0"/>
+  <parent link="Component9_1"/>
+  <child link="Component11_1"/>
+  <axis xyz="0.999657 -0.026177 0.0"/>
+  <limit upper="1.745329" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 44" type="revolute">
+  <origin xyz="0.000505 -0.001714 0.035351" rpy="0 0 0"/>
+  <parent link="Component9_1"/>
+  <child link="Component12_1"/>
+  <axis xyz="0.999657 -0.026177 0.0"/>
+  <limit upper="2.094395" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 45" type="revolute">
+  <origin xyz="-0.003285 -0.005119 0.02486" rpy="0 0 0"/>
+  <parent link="Component11_1"/>
+  <child link="Component10_1"/>
+  <axis xyz="-0.999657 0.026177 -0.0"/>
+  <limit upper="0.0" lower="-1.745329" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Rigid 46" type="fixed">
+  <origin xyz="0.036778 -0.017064 0.069" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Component26_1"/>
+</joint>
+
+<joint name="Revolute 47" type="revolute">
+  <origin xyz="-0.002621 0.005397 0.031392" rpy="0 0 0"/>
+  <parent link="Component26_1"/>
+  <child link="Component13_1"/>
+  <axis xyz="0.991608 -0.095481 -0.087156"/>
+  <limit upper="1.745329" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 48" type="revolute">
+  <origin xyz="0.014779 0.001221 0.038876" rpy="0 0 0"/>
+  <parent link="Component13_1"/>
+  <child link="Component17_1"/>
+  <axis xyz="0.991608 -0.095481 -0.087156"/>
+  <limit upper="1.745329" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 49" type="revolute">
+  <origin xyz="0.003514 -0.002982 0.036932" rpy="0 0 0"/>
+  <parent link="Component13_1"/>
+  <child link="Component18_1"/>
+  <axis xyz="0.991608 -0.095481 -0.087156"/>
+  <limit upper="2.094395" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 50" type="revolute">
+  <origin xyz="-0.000685 -0.003153 0.024922" rpy="0 0 0"/>
+  <parent link="Component17_1"/>
+  <child link="Component16_1"/>
+  <axis xyz="-0.991608 0.095481 0.087156"/>
+  <limit upper="0.0" lower="-1.745329" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 51" type="revolute">
+  <origin xyz="-0.027 -0.010587 0.01105" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Component21_1"/>
+  <axis xyz="-0.0 0.866025 0.5"/>
+  <limit upper="1.047198" lower="-0.349066" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 52" type="revolute">
+  <origin xyz="-0.0057 -0.018966 -0.01095" rpy="0 0 0"/>
+  <parent link="Component21_1"/>
+  <child link="Component15_1"/>
+  <axis xyz="-1.0 0.0 -0.0"/>
+  <limit upper="0.698132" lower="-0.349066" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 53" type="revolute">
+  <origin xyz="0.01115 -0.039318 0.007811" rpy="0 0 0"/>
+  <parent link="Component15_1"/>
+  <child link="Component19_1"/>
+  <axis xyz="-1.0 0.0 -0.0"/>
+  <limit upper="1.745329" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 54" type="revolute">
+  <origin xyz="0.00055 -0.035175 0.01215" rpy="0 0 0"/>
+  <parent link="Component15_1"/>
+  <child link="Component14_1"/>
+  <axis xyz="-1.0 0.0 -0.0"/>
+  <limit upper="2.094395" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 55" type="revolute">
+  <origin xyz="-0.00315 -0.030147 0.015588" rpy="0 0 0"/>
+  <parent link="Component19_1"/>
+  <child link="Component20_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+  <limit upper="0.0" lower="-1.745329" effort="100" velocity="100"/>
+</joint>
+
+</robot>

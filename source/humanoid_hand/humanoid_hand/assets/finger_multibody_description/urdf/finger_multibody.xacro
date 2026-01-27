@@ -1,0 +1,142 @@
+<?xml version="1.0" ?>
+<robot name="finger_multibody" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find finger_multibody_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find finger_multibody_description)/urdf/finger_multibody.trans" />
+<xacro:include filename="$(find finger_multibody_description)/urdf/finger_multibody.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.0003774864346654952 0.005046599436291419 0.007762944735010138" rpy="0 0 0"/>
+    <mass value="0.009810501088674256"/>
+    <inertia ixx="2e-06" iyy="12e-06" izz="2e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://finger_multibody_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://finger_multibody_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component3_1">
+  <inertial>
+    <origin xyz="0.005614720751094468 0.0005718473816604722 0.01663585386372114" rpy="0 0 0"/>
+    <mass value="0.008332099055190471"/>
+    <inertia ixx="2e-06" iyy="2e-06" izz="2e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.00575 -0.001021 -0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://finger_multibody_description/meshes/Component3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.00575 -0.001021 -0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://finger_multibody_description/meshes/Component3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component2_1">
+  <inertial>
+    <origin xyz="-0.003441963877938783 -0.00148720556888567 0.004973493702019313" rpy="0 0 0"/>
+    <mass value="0.0014771245143456475"/>
+    <inertia ixx="2e-06" iyy="2e-06" izz="2e-06" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0054 -0.003653 -0.066" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://finger_multibody_description/meshes/Component2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0054 -0.003653 -0.066" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://finger_multibody_description/meshes/Component2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component4_1">
+  <inertial>
+    <origin xyz="-0.002251888869850009 0.0015547770688607728 0.006102691515930514" rpy="0 0 0"/>
+    <mass value="0.0017939758440695596"/>
+    <inertia ixx="2e-06" iyy="2e-06" izz="2e-06" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0023 5.6e-05 -0.090723" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://finger_multibody_description/meshes/Component4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0023 5.6e-05 -0.090723" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://finger_multibody_description/meshes/Component4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component5_1">
+  <inertial>
+    <origin xyz="0.00162341590915104 0.002577682569217019 0.011430804335222741" rpy="0 0 0"/>
+    <mass value="0.00043050786282414156"/>
+    <inertia ixx="2e-06" iyy="2e-06" izz="2e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0052 0.001611 -0.063121" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://finger_multibody_description/meshes/Component5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0052 0.001611 -0.063121" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://finger_multibody_description/meshes/Component5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute 1" type="revolute">
+  <origin xyz="-0.00575 0.001021 0.026" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Component3_1"/>
+  <axis xyz="-1.0 -0.0 -0.0"/>
+  <limit upper="0.017453" lower="-1.919862" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 2" type="revolute">
+  <origin xyz="0.01115 0.002632 0.04" rpy="0 0 0"/>
+  <parent link="Component3_1"/>
+  <child link="Component2_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <limit upper="1.745329" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 3" type="continuous">
+  <origin xyz="-0.0031 -0.003709 0.024723" rpy="0 0 0"/>
+  <parent link="Component2_1"/>
+  <child link="Component4_1"/>
+  <axis xyz="-1.0 -0.0 -0.0"/>
+</joint>
+
+<joint name="Revolute 4" type="continuous">
+  <origin xyz="0.00055 -0.002632 0.037121" rpy="0 0 0"/>
+  <parent link="Component3_1"/>
+  <child link="Component5_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+</robot>
