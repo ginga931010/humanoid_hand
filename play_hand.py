@@ -18,6 +18,21 @@ def main():
     env = gym.make("Humanoid-Hand-v0", render_mode="rgb_array")
     
     print("[INFO] Environment created.")
+    robot = env.unwrapped.scene["robot"]
+    # 取得關節限制 (Joint Limits)
+    dof_limits = robot.data.default_joint_pos_limits
+    print(f"\n[DEBUG] Joint Limits Check:")
+    
+    #print joint name
+    print(f"Joint Names: {robot.data.joint_names}")
+
+    print(f"Lower Limits: {dof_limits[0, :, 0]}") # 印出第一個環境的所有關節下限
+    print(f"Upper Limits: {dof_limits[0, :, 1]}") # 印出第一個環境的所有關節上限
+    
+    # 檢查是否有任何限制範圍小於 0.5 (約 30度)
+    if (dof_limits[0, :, 1] - dof_limits[0, :, 0]).max() < 0.5:
+        print("\n[WARNING] 你的關節活動範圍非常小！這就是為什麼手動不了的原因！")
+        print("請檢查 URDF/USD 的 limit 設定。")
     
     # 取得環境資訊
     # 注意：Isaac Lab 的 action_space 形狀通常是 (num_envs, action_dim)

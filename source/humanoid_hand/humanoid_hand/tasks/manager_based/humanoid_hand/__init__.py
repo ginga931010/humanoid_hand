@@ -28,6 +28,8 @@
 
 import gymnasium as gym
 
+from . import agents
+
 # 引入你的 Config Class
 from .humanoid_hand_env_cfg import HumanoidHandEnvCfg
 
@@ -48,5 +50,35 @@ gym.register(
         # 而是由 train.py 透過 gym.spec(env_id).kwargs.get("rsl_rl_cfg_entry_point") 去抓。
         # 但如果你的 Env 沒報錯說 "unexpected keyword argument"，留著也行。
         # 為了保險起見，建議先只留 cfg。
+    },
+)
+
+gym.register(
+    id="Humanoid-Hand-v1",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": f"{__name__}.humanoid_hand_env_cfg:HumanoidHandEnvCfg",
+        "rsl_rl_cfg_entry_point": f"{agents.__name__}.rsl_rl_ppo_cfg:HumanoidHandPPORunnerCfg1",
+    },
+)
+
+gym.register(
+    id="Humanoid-Hand-v2",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": f"{__name__}.humanoid_hand_env_cfg:HumanoidHandEnvCfg",
+        "rsl_rl_cfg_entry_point": f"{agents.__name__}.rsl_rl_ppo_cfg:HumanoidHandPPORunnerCfg2",
+    },
+)
+
+gym.register(
+    id="Humanoid-Hand-v3",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": f"{__name__}.humanoid_hand_env_cfg_v2:HumanoidHandEnvCfg",
+        "rsl_rl_cfg_entry_point": f"{agents.__name__}.rsl_rl_ppo_cfg:HumanoidHandV2PPORunnerCfg",
     },
 )

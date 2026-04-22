@@ -9,7 +9,7 @@ import torch
 
 import isaaclab.sim as sim_utils
 from isaaclab.assets import ArticulationCfg, AssetBaseCfg, RigidObjectCfg
-from isaaclab.actuators import ImplicitActuatorCfg
+from isaaclab.actuators import ImplicitActuatorCfg, IdealPDActuatorCfg
 from isaaclab.envs import ManagerBasedRLEnvCfg
 from isaaclab.managers import EventTermCfg as EventTerm
 from isaaclab.managers import ObservationGroupCfg as ObsGroup
@@ -73,22 +73,27 @@ class HumanoidHandSceneCfg(InteractiveSceneCfg):
             activate_contact_sensors=True,
             rigid_props=sim_utils.RigidBodyPropertiesCfg(
                 disable_gravity=False,
-                max_depenetration_velocity=10.0,
+                max_depenetration_velocity=1.0, # [建議] 降低這個值，對小物件比較穩定
             ),
             articulation_props=sim_utils.ArticulationRootPropertiesCfg(
                 enabled_self_collisions=True,
-                solver_position_iteration_count=8,
-                solver_velocity_iteration_count=2,
+                solver_position_iteration_count=16, # [建議] 增加迭代次數，提高小物件的計算精度
+                solver_velocity_iteration_count=4,
                 fix_root_link=True,
             ),
         ),
         init_state=ArticulationCfg.InitialStateCfg(
-            joint_pos={".*": 0.0},
-            pos=(0.5, 0.25, 0.75), 
+            joint_pos={'Revolute_33': 0.0, 'Revolute_37': 0.0, 'Revolute_42': 0.0, 'Revolute_47': 0.0,
+                        'Revolute_51': 0.5, 'Revolute_34': 0.0, 'Revolute_35': 0.0, 'Revolute_38': 0.0,
+                        'Revolute_39': 0.0, 'Revolute_43': 0.0, 'Revolute_44': 0.0, 'Revolute_48': 0.0, 
+                        'Revolute_49': 0.0, 'Revolute_52': 0.0, 'Revolute_36': 0.0, 'Revolute_40': 0.0, 
+                        'Revolute_45': 0.0, 'Revolute_50': 0.0, 'Revolute_53': 0.0, 'Revolute_54': 0.0, 
+                        'Revolute_55': 0.0},
+            pos=(0.5, 0.25, 0.85), 
             rot=(1.0, 0.0, 0.0, 0.0),
         ),
         actuators={
-            "hand_actuator": ImplicitActuatorCfg(
+            "hand_actuator": IdealPDActuatorCfg(   # [修改] 改用 IdealPD，這會比較聽話
                 joint_names_expr=[
                     "Revolute_33", "Revolute_34", 
                     "Revolute_37", "Revolute_38", 
@@ -96,10 +101,11 @@ class HumanoidHandSceneCfg(InteractiveSceneCfg):
                     "Revolute_47", "Revolute_48", 
                     "Revolute_51", "Revolute_52", "Revolute_53"
                 ],
-                effort_limit_sim=1000,
-                velocity_limit_sim=10,    
-                stiffness=2000,
-                damping=200,
+                # IdealPD 不需要 effort_limit_sim，它直接用力矩上限
+                effort_limit=1.0,      # 給它超大的力，確認它到底能不能動
+                velocity_limit=1.0,    
+                stiffness=0.032,         # P gain: 對於手指(幾克重)，20已經很大了
+                damping=0.0048,            # D gain: 設為 P 的 10% 左右來消抖
             ),
         },
     )
@@ -131,7 +137,7 @@ class HumanoidHandSceneCfg(InteractiveSceneCfg):
                 solver_velocity_iteration_count=1,
                 
             ),
-            mass_props=sim_utils.MassPropertiesCfg(mass=0.1),
+            mass_props=sim_utils.MassPropertiesCfg(mass=0.05),
         ),
         init_state=RigidObjectCfg.InitialStateCfg(pos=(0.5, 0, 0.78)),
     )
@@ -144,7 +150,7 @@ class HumanoidHandSceneCfg(InteractiveSceneCfg):
             radius=0.03,
             visual_material=sim_utils.PreviewSurfaceCfg(diffuse_color=(0.2, 1.0, 0.2)),
             rigid_props=sim_utils.RigidBodyPropertiesCfg(),
-            mass_props=sim_utils.MassPropertiesCfg(mass=0.1),
+            mass_props=sim_utils.MassPropertiesCfg(mass=0.05),
             collision_props=sim_utils.CollisionPropertiesCfg(),
         ),
         init_state=RigidObjectCfg.InitialStateCfg(pos=(0.5, 0.2, 0.78)),
@@ -156,13 +162,13 @@ class HumanoidHandSceneCfg(InteractiveSceneCfg):
         prim_path="{ENV_REGEX_NS}/Object_Cylinder",
         spawn=sim_utils.CylinderCfg(
             radius=0.03,
-            height=0.10,
+            height=0.15,
             visual_material=sim_utils.PreviewSurfaceCfg(diffuse_color=(0.2, 0.2, 1.0)),
             rigid_props=sim_utils.RigidBodyPropertiesCfg(),
-            mass_props=sim_utils.MassPropertiesCfg(mass=0.1),
+            mass_props=sim_utils.MassPropertiesCfg(mass=0.05),
             collision_props=sim_utils.CollisionPropertiesCfg(),
         ),
-        init_state=RigidObjectCfg.InitialStateCfg(pos=(0.5, -0.2, 0.80)),
+        init_state=RigidObjectCfg.InitialStateCfg(pos=(0.5, -0.2, 0.85)),
     )
 
 
@@ -183,7 +189,7 @@ class ActionsCfg:
             "Revolute_47", "Revolute_48", 
             "Revolute_51", "Revolute_52", "Revolute_53"
         ],
-        scale=1.0,
+        scale=2.0,
         use_default_offset=False, 
     )
 
@@ -262,24 +268,88 @@ class EventCfg:
         mode="reset",
         params={
             "robot_cfg": SceneEntityCfg("robot"),
-            "offset_top_grasp_pos": (0.0, 0.1, 0.05),
-            "offset_top_grasp_rot": (0.7071, 0.7071, 0.0, 0.0),
-            "offset_side_grasp_pos": (0.0, 0.05, 0.0),
-            "offset_side_grasp_rot": (1.0, 0.0, 0.0, 0.0),
+            "offset_top_grasp_pos": (0.0, 0.06, 0.095),
+            "offset_top_grasp_rot": (0.5, 0.8660254, 0.0, 0.0),
+            "offset_side_grasp_pos": (-0.095, 0.035, -0.005),
+            "offset_side_grasp_rot": (0.7071068, 0.0, 0.7071068, 0.0),
         },
     )
 
 @configclass
 class RewardsCfg:
     """Reward Terms"""
-    alive = RewTerm(func=mdp.is_alive, weight=1.0)
-    action_rate = RewTerm(func=mdp.action_rate_l2, weight=-0.01)
+    
+    # 1. 活著就有獎勵 (避免過早結束)
+    alive = RewTerm(func=mdp.is_alive, weight=0.0)
+    
+    # 2. 懲罰動作劇烈程度 (Action Rate) - 讓動作平滑
+    action_rate = RewTerm(func=mdp.action_rate_l2, weight=-0.25)
+    
+    # 3. [核心] 指尖靠近物體獎勵
+    fingertip_distance = RewTerm(
+        func=local_mdp.fingertip_object_distance,
+        weight=20.0,
+        params={
+            "std": 0.05,  # 距離 1cm 時獎勵下降顯著
+            "minimal_height": 0.0, # 隨時都計算
+            # [重要] 請將這裡的 regex 改為你真正的指尖 Link 名稱
+            # 如果不知道，先用 ".*" 雖然不準但能跑
+            # 建議格式: ["distal_thumb", "distal_index", ...]
+            "fingertip_cfg": SceneEntityCfg("robot", body_names=[
+                "Component2_1", "Component5_1", "Component10_1","Component16_1"]), 
+        },
+    )
+    
+    # 4. [核心] 抬起獎勵 (Binary) - 這是最重要的目標
+    # 假設桌子高度 0.75，物體本身高 0.05，所以 0.85 代表抬起約 5~10 公分
+    object_lifted = RewTerm(
+        func=local_mdp.object_is_lifted_by_type, # 改用新的函數
+        weight=50.0,
+        params={
+            # 根據上面的計算填入數值
+            "height_cube": 0.785,     # 方塊比較矮
+            "height_sphere": 0.80,    # 球體中等
+            "height_cylinder": 0.83,  # 圓柱本身就很高，閾值要設高一點，不然還沒離地就拿分了
+        },
+    )
+    
+    thumb_tip_tracking = RewTerm(
+        func=local_mdp.fingertip_object_distance,
+        weight=100.0,  # 給予高權重，強迫它重視大拇指的位置
+        params={
+            "std": 0.03,  # [高精度要求] 只有非常靠近(5cm內)才開始給高分
+            "minimal_height": 0.0,
+            
+            # [關鍵] 這裡只填入大拇指尖的 Link 名稱
+            # 請根據你的 URDF 確認名稱，這裡假設是包含 53 的 link (通常是拇指末端)
+            # 或者是 "Link_53", "distal_thumb" 等
+            "fingertip_cfg": SceneEntityCfg("robot", body_names=["Component20_1"]), 
+        },
+    )
+    # 5. [輔助] 高度連續獎勵 - 引導它慢慢往上
+    # object_height = RewTerm(
+    #     func=local_mdp.object_height_continuous,
+    #     weight=5.0,
+    #     params={
+    #         "initial_height": 0.78, # 物體在桌上的初始高度
+    #         "max_height": 0.3,      # 最多算到抬高 30cm
+    #     },
+    # )
 
 @configclass
 class TerminationsCfg:
     """Termination Conditions"""
+    
+    # 1. 超時終止 (Time Out)
+    # 當步數超過 episode_length_s / dt 時觸發
     time_out = DoneTerm(func=mdp.time_out, time_out=True)
-
+    
+    # 2. 物體掉落終止 (Object Dropped)
+    # 桌子高度是 0.75m，如果物體掉到 0.5m 以下，判定為失敗
+    object_dropped = DoneTerm(
+        func=local_mdp.object_dropped, # 呼叫我們剛剛寫的函數
+        params={"threshold": 0.5},     # 閾值設定
+    )
 ##
 # Environment Configuration
 ##
@@ -296,10 +366,10 @@ class HumanoidHandEnvCfg(ManagerBasedRLEnvCfg):
     terminations: TerminationsCfg = TerminationsCfg()
 
     episode_length_s = 5.0
-    decimation = 2
+    decimation = 2 
     
     sim: sim_utils.SimulationCfg = sim_utils.SimulationCfg(
-        dt=0.005,
+        dt=0.005, 
         render_interval=2, 
         # disable_contact_processing=False,
         physics_material=sim_utils.RigidBodyMaterialCfg(
